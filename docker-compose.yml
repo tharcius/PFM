@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  gfp_process:
+    container_name: gfp_process
+    working_dir: /var/www/app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        user: admin
+        uid: 1000
+    volumes:
+      - .:/var/www/app
+      - ./docker/:/etc/docker
+      - "./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+    networks:
+      - gfp
+    depends_on:
+      - gfp_installation
+
+  gfp_nginx:
+    container_name: gfp_nginx
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - '${APP_PORT:-80}:80'
+      - 444:443
+    volumes:
+      - ./:/var/www/app
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - gfp
+    depends_on:
+      - gfp_process
+
+  gfp_installation:
+    container_name: gfp_installation
+    image: composer
+    volumes:
+      - ./:/app
+    command: composer install
+
+networks:
+  gfp:
+    external: true
