@@ -16,7 +16,7 @@ class CreateTransactionTagsTable extends Migration
         Schema::create('transaction_tags', function (Blueprint $table) {
             $table->id(); // Cria uma coluna de chave primária auto-incremento chamada 'id'
             $table->foreignId('transaction_id')->constrained('transactions')->onDelete('cascade'); // Relacionamento com a tabela 'transactions'
-            $table->foreignId('tag_id')->constrained('tags')->onDelete('cascade'); // Relacionamento com a tabela 'tags'
+            $table->foreignId('tag_id')->constrained('tags'); // Relacionamento com a tabela 'tags'
             $table->timestamps(); // Cria as colunas 'created_at' e 'updated_at'
         });
     }

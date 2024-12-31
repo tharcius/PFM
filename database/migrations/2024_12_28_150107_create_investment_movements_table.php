@@ -15,11 +15,11 @@ class CreateInvestmentMovementsTable extends Migration
     {
         Schema::create('investment_movements', function (Blueprint $table) {
             $table->id(); // Cria uma coluna de chave primária auto-incremento chamada 'id'
-            $table->foreignId('investment_id')->constrained('investments')->onDelete('cascade'); // Relacionamento com a tabela 'investments'
-            $table->string('movement_type', 10); // 'aporte' ou 'saque'
+            $table->integer('movement_type'); // 1 - 'aporte' ou 2 - 'saque'
             $table->integer('amount'); // Valor do movimento
             $table->dateTime('date'); // Data do movimento
             $table->string('description', 255)->nullable(); // Descrição do movimento
+            $table->foreignId('investment_id')->constrained('investments'); // Relacionamento com a tabela 'investments'
             $table->timestamps(); // Cria as colunas 'created_at' e 'updated_at'
         });
     }

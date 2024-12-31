@@ -17,7 +17,8 @@ class CreateTagsTable extends Migration
             $table->id(); // Cria uma coluna de chave primária auto-incremento chamada 'id'
             $table->string('name', 100); // Coluna para o nome da tag
             $table->string('description', 255)->nullable(); // Coluna para a descrição da tag, pode ser nula
-            $table->string('color_hexa', 6); // Cor em hexa para essa tag
+            $table->string('color_hexa', 6)->nullable(); // Cor em hexa para essa tag
+            $table->softDeletes();
             $table->timestamps(); // Cria as colunas 'created_at' e 'updated_at'
         });
     }
