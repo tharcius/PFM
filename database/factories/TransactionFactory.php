@@ -16,8 +16,13 @@ class TransactionFactory extends Factory
      */
     public function definition(): array
     {
+        $day = rand(-45,45);
+
         return [
-            //
+            'amount' => rand(100, 100000),
+            'date' => date('d-m-Y', strtotime("+{$day} days")),
+            'type' => rand(1, 3),
+            'description' => fake()->realText(50, 1)
         ];
     }
 }

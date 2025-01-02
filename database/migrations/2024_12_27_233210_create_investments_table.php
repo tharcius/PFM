@@ -15,7 +15,7 @@ class CreateInvestmentsTable extends Migration
     {
         Schema::create('investments', function (Blueprint $table) {
             $table->id(); // Cria uma coluna de chave primária auto-incremento chamada 'id'
-            $table->string('investment_type', 50); // Coluna para o tipo de investimento
+            $table->string('type', 50); // Coluna para o tipo de investimento
             $table->integer('initial_value'); // Coluna para o valor inicial do investimento
             $table->integer('yield'); // Coluna para o rendimento do investimento
             $table->dateTime('start_date'); // Coluna para a data de início do investimento

@@ -12,7 +12,7 @@ class InvestmentMovement extends Model
     use HasFactory;
 
     protected $fillable = [
-        'movement_type',
+        'type',
         'amount',
         'date',
         'description',

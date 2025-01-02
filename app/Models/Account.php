@@ -12,10 +12,10 @@ class Account extends Model
     use HasFactory;
 
     protected $fillable = [
-        'account_type',
+        'type',
         'bank_name',
-        'account_number',
-        'account_agency'
+        'number',
+        'agency'
     ];
 
     public function paymentMethods(): HasMany

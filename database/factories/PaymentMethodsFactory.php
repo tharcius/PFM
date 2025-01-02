@@ -17,7 +17,8 @@ class PaymentMethodsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type' => rand(1, 7),
+            'account_id' => rand(1,300)
         ];
     }
 }

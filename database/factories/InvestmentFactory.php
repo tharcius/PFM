@@ -17,8 +17,9 @@ class InvestmentFactory extends Factory
     public function definition(): array
     {
         $month = rand(5,72);
+        
         return [
-            'investiment_type' => fake()->name(),
+            'type' => fake()->name(),
             'initial_value' => rand(1000, 98200),
             'yield' => rand(100, 9800),
             'start_date' => now()->format('Y-m-d'),

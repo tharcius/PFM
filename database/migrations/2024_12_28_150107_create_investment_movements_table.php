@@ -15,7 +15,7 @@ class CreateInvestmentMovementsTable extends Migration
     {
         Schema::create('investment_movements', function (Blueprint $table) {
             $table->id(); // Cria uma coluna de chave primária auto-incremento chamada 'id'
-            $table->integer('movement_type'); // 1 - 'aporte' ou 2 - 'saque'
+            $table->tinyInteger('type'); // 1 - 'aporte' ou 2 - 'saque'
             $table->integer('amount'); // Valor do movimento
             $table->dateTime('date'); // Data do movimento
             $table->string('description', 255)->nullable(); // Descrição do movimento

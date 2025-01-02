@@ -17,7 +17,10 @@ class AccountFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type' => rand(1, 3),
+            'bank_name' => fake()->name(),
+            'number' => rand(1120, 999999999999) . '-' . rand(1, 9),
+            'agency' => rand(1000, 99999) . '-' . rand(1, 9),
         ];
     }
 }

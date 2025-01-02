@@ -13,7 +13,7 @@ class Investment extends Model
     use HasFactory;
     
     protected $fillable = [
-        'investiment_type',
+        'type',
         'initial_value',
         'yield',
         'start_date',

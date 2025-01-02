@@ -15,8 +15,8 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id(); // Cria uma coluna de chave primária auto-incremento chamada 'id'
-            $table->string('name', 100); // Coluna para o nome da tag
-            $table->string('description', 255)->nullable(); // Coluna para a descrição da tag, pode ser nula
+            $table->string('name', 20); // Coluna para o nome da tag
+            $table->tinyText('description')->nullable(); // Coluna para a descrição da tag, pode ser nula
             $table->string('color_hexa', 6)->nullable(); // Cor em hexa para essa tag
             $table->softDeletes();
             $table->timestamps(); // Cria as colunas 'created_at' e 'updated_at'

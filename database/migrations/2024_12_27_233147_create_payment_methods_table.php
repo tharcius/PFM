@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('method_type', 20);
+            $table->tinyInteger('type');
             $table->foreignId('account_id')->constrained('accounts'); // Relacionamento com a tabela 'accounts'
             $table->softDeletes();
             $table->timestamps();
