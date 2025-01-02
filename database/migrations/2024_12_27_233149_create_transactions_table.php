@@ -19,6 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->dateTime('date'); // Coluna para a data da transação
             $table->integer('type'); // Coluna para o tipo de transação (Entrada ou Saída)
             $table->string('description', 255)->nullable(); // Coluna para descrição da transação
+            $table->integer('installment_ref'); // // Registra o ID da primeira parcela do parcelamento relacionado
             $table->foreignId('payment_method_id')->constrained('payment_methods'); // Relacionamento com a tabela 'payment_methods'
             $table->foreignId('user_id')->constrained('users'); // Relacionamento com a tabela 'users'
             $table->foreignId('category_id')->constrained('categories'); // Relacionamento com a tabela 'categories'

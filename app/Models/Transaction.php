@@ -18,6 +18,7 @@ class Transaction extends Model
         'date',
         'type',
         'description',
+        'installment_ref',
         'payment_method_id',
         'user_id',
         'category_id'
