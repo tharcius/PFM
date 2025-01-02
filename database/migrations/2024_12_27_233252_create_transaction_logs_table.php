@@ -18,7 +18,6 @@ class CreateTransactionLogsTable extends Migration
             $table->string('action', 50); // Coluna para o tipo de ação
             $table->string('description', 255)->nullable(); // Coluna para a descrição da ação, pode ser nula
             $table->text('transaction'); // Grava o dado gerado no banco de dados
-            $table->dateTime('timestamp'); // Coluna para a data e hora do log
             $table->timestamps(); // Cria as colunas 'created_at' e 'updated_at'
         });
     }

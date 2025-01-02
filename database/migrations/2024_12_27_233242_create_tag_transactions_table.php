@@ -13,7 +13,7 @@ class CreateTransactionTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaction_tags', function (Blueprint $table) {
+        Schema::create('tag_transactions', function (Blueprint $table) {
             $table->id(); // Cria uma coluna de chave primária auto-incremento chamada 'id'
             $table->foreignId('transaction_id')->constrained('transactions')->onDelete('cascade'); // Relacionamento com a tabela 'transactions'
             $table->foreignId('tag_id')->constrained('tags'); // Relacionamento com a tabela 'tags'
@@ -28,6 +28,6 @@ class CreateTransactionTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction_tags');
+        Schema::dropIfExists('tag_transactions');
     }
 }

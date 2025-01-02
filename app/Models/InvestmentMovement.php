@@ -4,9 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class InvestmentMovement extends Model
 {
     /** @use HasFactory<\Database\Factories\InvestmentMovementFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'movement_type',
+        'amount',
+        'date',
+        'description',
+        'investment_id'
+    ];
+
+    public function investstment(): HasOne
+    {
+        return $this->hasOne(Investment::class);
+    }
+
 }

@@ -6,15 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class PaymentMethod extends Model
 {
-    /** @use HasFactory<\Database\Factories\CategoryFactory> */
+    /** @use HasFactory<\Database\Factories\PaymentMethodsFactory> */
     use HasFactory;
-    
+
     protected $fillable = [
-        'name',
-        'description'
+        'method_type',
+        'account_id'
     ];
+
+    public function accounts(): HasMany
+    {
+        return $this->hasMany(Account::class);
+    }
 
     public function transactions(): HasMany
     {

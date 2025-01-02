@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransactionLog extends Model
 {
-    //
+    protected $fillable = [
+        'action',
+        'description',
+        'transaction'
+    ];
 }
