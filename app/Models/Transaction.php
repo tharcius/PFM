@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\TransactionType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,6 +13,10 @@ class Transaction extends Model
 {
     /** @use HasFactory<\Database\Factories\TransactionFactory> */
     use HasFactory;
+
+    protected $casts = [
+        'type' => TransactionType::class
+    ];
     
     protected $fillable = [
         'amount',
@@ -24,6 +29,11 @@ class Transaction extends Model
         'category_id'
     ];
 
+    public function getTransactionTypeLabelAttribute(): string
+    {
+        return $this->type->label();
+    }
+
     public function categories(): HasMany
     {
         return $this->hasMany(Category::class);
@@ -32,11 +42,6 @@ class Transaction extends Model
     public function investment(): HasOne
     {
         return $this->hasOne(Investment::class);
-    }
-
-    public function installment(): HasOne
-    {
-        return $this->hasOne(Installment::class);
     }
 
     public function paymentMethod(): HasOne

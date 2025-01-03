@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PaymentMethods>
  */
-class PaymentMethodsFactory extends Factory
+class PaymentMethodFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class PaymentMethodsFactory extends Factory
     {
         return [
             'type' => rand(1, 7),
-            'account_id' => rand(1,300)
+            'account_id' => rand(1,7)
         ];
     }
 }
