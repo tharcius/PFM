@@ -25,7 +25,7 @@ class TransactionFactory extends Factory
             'description' => fake()->realText(20, 1),
             'user_id' => 1,
             'payment_method_id' => rand(1, 6),
-            'category_id' => rand(1,6)
+            'category_id' => rand(1,11)
         ];
     }
 }

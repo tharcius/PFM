@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('type');
-            $table->string('bank_name', 50);
+            $table->string('bank_name', 50)->nullable();
             $table->string('number', 22)->nullable();
             $table->string('agency', 7)->nullable();
             $table->softDeletes();

@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Account;
 use App\Models\Category;
+use App\Models\PaymentMethod;
+use App\Models\Transaction;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,9 +20,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         User::factory()->create([
-            'name' => 'Tharcius 2',
+            'name' => 'Tharcius',
             'email' => 'user@email.com',
             'password' => Hash::make('123456')
         ]);
+        
+        $this->call([
+            CategorySeeder::class,
+            TagSeeder::class
+        ]);
+
+        Account::factory()->count(7)->create();
+        PaymentMethod::factory()->count(6)->create();
+        Transaction::factory()->count(100)->create();
     }
 }
