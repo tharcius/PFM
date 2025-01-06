@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 25);
             $table->tinyInteger('type');
             $table->string('bank_name', 50)->nullable();
             $table->string('number', 22)->nullable();

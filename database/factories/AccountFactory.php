@@ -19,6 +19,7 @@ class AccountFactory extends Factory
         $type = rand(1, 3);
 
         return [
+            'name' => fake()->name(),
             'type' => $type,
             'bank_name' => $type == 1 ? null : fake()->word(),
             'number' => $type == 1 ? null :rand(1120, 999999999999) . '-' . rand(1, 9),
